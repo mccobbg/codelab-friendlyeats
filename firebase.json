@@ -20,6 +20,8 @@
     },
     "singleProjectMode": true,
     "hosting": {
+      "public": "public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "port": 5000
     }
   },
