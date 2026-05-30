@@ -15,3 +15,42 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+Test mode:
+
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if
+          request.time < timestamp.date(2026, 6, 29);
+    }
+  }
+}
+
+Production mode: 
+
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+Gemini API API Key 
+AQ.Ab8RN6LOhmRLmHvV1vUM1COhoHbK3M5npmevFCh1ffIlheDeng
+
+Gemini API Friendly Eata Key
+
+Project Name
+projects/422968366405
+
+Project Number
+422968366405
+
+To grant additional users access to this secret run firebase apphosting:secrets:grantaccess GEMINI_API_KEY --email [email list].
+To grant additional backends access to this secret run firebase apphosting:secrets:grantaccess GEMINI_API_KEY --backend [backend ID]
